@@ -1,0 +1,42 @@
+// define your service and message definitions using Protocol Buffers syntax.
+// This file describes the API's interface.
+syntax = "proto3";
+
+package wowml;
+
+import "google/protobuf/empty.proto";
+
+service WowController {
+    rpc Setup(MlStatusRequest) returns (MlStatus) {};
+    rpc Import(ImportMlRequest) returns (ResponseMessage) {};
+    rpc Actions(ActionRequest) returns (ResponseMessage) {};
+}
+
+enum MlCommand {
+    PREDICT = 0;
+    EXPORT = 1;
+    CREATE_DATASET = 2;
+    LOG = 3;
+    DOWNLOAD_CHECKPOINT = 4;
+}
+
+message ActionRequest{
+    MlCommand command = 1;
+}
+
+message MlStatusRequest {
+    string token = 1;
+}
+
+message ImportMlRequest {
+    bytes base64StrFile = 1;
+}
+
+message ResponseMessage{
+    int32 status = 1;
+    string message = 2;
+}
+
+message MlStatus {
+    int32 id = 1;
+}
