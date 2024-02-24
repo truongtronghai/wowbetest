@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd parties
     "django_grpc_framework",
+    "oauth2_provider",
 ]
 
 MIDDLEWARE = [
