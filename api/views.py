@@ -6,8 +6,6 @@ from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 class TestOauth(APIView):
-    permission_classes = [IsAuthenticated]
-
     def get(self, request):
         return Response(
             {

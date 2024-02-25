@@ -9,9 +9,11 @@ djangogrpcframework==0.2.1
 djangorestframework==3.14.0
 grpcio==1.62.0
 grpcio-tools==1.62.0
+gunicorn==21.2.0
 idna==3.6
 jwcrypto==1.5.4
 oauthlib==3.2.2
+packaging==23.2
 protobuf==4.25.3
 pycparser==2.21
 pytz==2024.1
