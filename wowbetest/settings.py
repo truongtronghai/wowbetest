@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd parties
     "django_grpc_framework",
+    "rest_framework",
     "oauth2_provider",
+    # local
+    "wowml",
+    "api",
 ]
 
 MIDDLEWARE = [
@@ -124,3 +128,24 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+OAUTH2_PROVIDER = {
+    "ACCESS_TOKEN_EXPIRE_SECONDS": 60,
+    "SCOPES": {
+        "read": "Read scope",
+        "write": "Write scope",
+        "groups": "Access to your groups",
+    },
+    "PKCE_REQUIRED": False,
+}
+
+LOGIN_URL = "/admin/login/"
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+}
